@@ -2,18 +2,24 @@ import logo from './logo.svg';
 import './App.css';
 import Header from './Header';
 import weblog from "./Images/download.jpeg"
+import { useState } from 'react';
 function App() {
+  let [count, setCount]=useState(1)
+
   let displayData=()=>{
-    alert("Welcome")
+     setCount(count+1)
+   
   }
 
-  let message=(a,b)=>{
-   console.log(a+b)
-  }
+  // let message=(a,b)=>{
+  //  console.log(a+b)
+  // }
+
 
   return (
     <div className="App">
-      <button className='bg-[red] p-[]10px' onClick={()=>message(12,34)}>parameter use</button> 
+      {count}
+      {/* <button className='bg-[red] p-[]10px' onClick={()=>message(12,34)}>parameter use</button>  */}
       <button className='bg-[red] p-[]10px' onClick={displayData}>Save</button>
       {/* <button className='bg-[red] p-[]10px' onClick={displayData()}>Save</button>  if displayData() auto function call if page is load*/}
 
