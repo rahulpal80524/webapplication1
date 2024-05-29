@@ -1,54 +1,59 @@
 import logo from './logo.svg';
 import './App.css';
-import Header from './Header';
-import weblog from "./Images/download.jpeg"
 import { useState } from 'react';
 function App() {
-  let temp = '';
-  let [count, setCount]=useState(1)
-  let [pShow, setPshow]=useState(false)
 
-  if(pShow){
-    // temp=<>
-    // <button onClick={()=>setPshow(!pShow)}>Hide</button>
-    // <p>value is false</p>
-    // </>
-    temp=<Card/>
-  }else{
-    temp=<button className='bg-[green] p-10px' onClick={()=>setPshow(!pShow)}>Show</button>
+  let [todolist, setTodolist] = useState([]);
+
+  let saveToDoList = (event) => {
+    
+    let toname = event.target.toname.value;
+    if (!todolist.includes(toname)) {
+      let finalToDoList = [...todolist, toname]
+      setTodolist(finalToDoList);
+    } else {
+      alert("ToDo name already present");
+    }
+    event.preventDefault();
   }
 
-  let displayData=()=>{
-    setCount(count+1)
-  
-  }
-
-  let message=(a,b)=>{
-   console.log(a+b)
-  }
-
-
+  let list = todolist.map((value, index)=>{
+    return(
+      <TodDOListItems  value={value} key={index} indexNum={index} todolist={todolist} setTodolist={setTodolist}/>
+    )
+  })
   return (
     <div className="App">
-      {temp}
-      <div>
-      {count}
+      <h1>ToDo List</h1>
+      <form className="todo-form" onSubmit={saveToDoList}>
+        <input type="text" name='toname' className="todo-input" placeholder="Enter your task" />
+        <button className="todo-button">Save</button>
+      </form>
+      <div className='outerDiv'>
+        <ul className="todo-list">
+          {list}
+        </ul>
       </div>
-      {/* <button className='bg-[red] p-[]10px' onClick={()=>message(12,34)}>parameter use</button>  */}
-      <button className='bg-[red] p-[]10px' onClick={displayData}>Save</button>
-      {/* <button className='bg-[red] p-[]10px' onClick={displayData()}>Save</button>  if displayData() auto function call if page is load*/}
-      
-      <Header/>
-      <img src= {weblog}/>
-      <h1 className='text-[40px] text-red-200'> welcome to web application 1</h1>
     </div>
+
   );
 }
 
 export default App;
 
-let Card=()=>{
-   return(
-    <h1>welcome to this page</h1>
-   )
+
+function TodDOListItems({value, indexNum, todolist, setTodolist}){
+  let [status, setStatus] = useState(false);
+  let deleteRow=()=>{
+   let finalList = todolist.filter((v,i)=>i!=indexNum)
+   setTodolist(finalList);
+  }
+ 
+  let checkStatus=()=>{
+    setStatus(!status)
+  }
+  return(
+    <li onClick={checkStatus} className={`todo-item ${status ? 'complete-todo' : ''}`}>{indexNum+1}. {value} <span onClick={deleteRow} className="delete-button">&times;</span></li>
+  )
 }
+
