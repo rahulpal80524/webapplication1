@@ -133,3 +133,60 @@ h1 {
   background-color: yellow;
 
 }
+
+
+.tabsOuter {
+  width: 100%;
+  max-width: 1170px;
+  margin: auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.tabsOuter h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tabsOuter ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  gap: 10px;
+}
+
+.tabsOuter ul li {
+  margin: 0;
+  padding: 0;
+}
+
+.tabsOuter ul li button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tabsOuter ul li button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.activeButton {
+  background-color: green !important;
+}
+
+.tabsOuter p {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.5;
+  padding: 0 20px;
+}
