@@ -116,3 +116,56 @@ p{
     font-size: 1.2em;
     color: #666;
 }
+
+
+
+/* Overall error page container */
+.errorPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Error container box */
+  .errorContainer {
+    text-align: center;
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Error title */
+  .errorTitle {
+    font-size: 6em;
+    color: #ff6f61;
+    margin: 0;
+  }
+  
+  /* Error message */
+  .errorMessage {
+    font-size: 1.5em;
+    color: #333;
+    margin: 20px 0;
+  }
+  
+  /* Home button */
+  .homeButton {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .homeButton:hover {
+    background-color: #0056b3;
+  }
+  

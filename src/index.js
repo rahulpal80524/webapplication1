@@ -10,6 +10,7 @@ import About from './Pages/About';
 import Course from './Pages/Course';
 import Blog from './Pages/Blog';
 import BlogDetails from './Pages/BlogDetails';
+import Error404 from './Pages/Error404';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let allRoutes = createBrowserRouter(
@@ -33,6 +34,10 @@ let allRoutes = createBrowserRouter(
     {
       path: 'blog/:id',
       element: <BlogDetails/>
+    },
+    {
+      path: '*', //only routing pages path call, if other page not found the this page call
+      element: <Error404/>
     }
   ]
 )
