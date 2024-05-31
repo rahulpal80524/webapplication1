@@ -11,6 +11,11 @@ export default function Header() {
           <li><Link to={'/course'}>Course</Link></li>
           <li><Link to={'/about-us'}>About</Link></li>
           <li><Link to={'/blog'}>Blog</Link></li>
+          <li><Link to={'/enquiry'}>Enquiry</Link></li>
+          <li><Link to={'/login'}>Login</Link></li>
+          <li><Link to={'/tab'}>Tab</Link></li>
+          <li><Link to={'/todo-list'}>ToDo List</Link></li>
+
 
         </ul>
       </nav>

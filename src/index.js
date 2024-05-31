@@ -11,6 +11,10 @@ import Course from './Pages/Course';
 import Blog from './Pages/Blog';
 import BlogDetails from './Pages/BlogDetails';
 import Error404 from './Pages/Error404';
+import Enquiry from './Pages/Enquiry';
+import Login from './Pages/Login';
+import Tab from './Tab';
+import ToDoList from './Pages/ToDoList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let allRoutes = createBrowserRouter(
@@ -30,6 +34,22 @@ let allRoutes = createBrowserRouter(
     {
       path: 'blog',
       element: <Blog/>
+    },
+    {
+      path: 'enquiry',
+      element: <Enquiry/>
+    },
+    {
+      path: 'login',
+      element: <Login/>
+    },
+    {
+      path: 'tab',
+      element: <Tab/>
+    },
+    {
+      path: 'todo-list',
+      element: <ToDoList/>
     },
     {
       path: 'blog/:id',
