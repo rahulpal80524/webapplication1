@@ -30,34 +30,58 @@ export default function Enquiry() {
             subject: formData.subject,
             message: formData.message
         }
-        let checkFilter = userData.filter((v)=>v.email === formData.email)
-        if(checkFilter.length>=1){
-            toast.error("Email already present!");
-          
-           event.preventDefault();
+
+        if(formData.index===""){
+            let checkFilter = userData.filter((v)=>v.email === formData.email)
+            if(checkFilter.length>=1){
+                toast.error("Email already present!");
+              
+               event.preventDefault();
+            }else{
+                let oldUserData = [...userData,currentUserFormData] // old Array + new Array elements
+                setUserData(oldUserData)
+                setFormData({
+                    name:'',
+                    email: '',
+                    subject: '',
+                    message: '',
+                    index: ''
+            
+                })
+                
+            }
         }else{
-            let oldUserData = [...userData,currentUserFormData] // old Array + new Array elements
-            setUserData(oldUserData)
-            setFormData({
-                name:'',
-                email: '',
-                subject: '',
-                message: '',
-                index: ''
-        
-            })
-            event.preventDefault();
+          let  editIndex = formData.index;
+          let oldData = userData;
+          oldData[editIndex]['name'] = formData.name;
+          oldData[editIndex]['email'] = formData.email;
+          oldData[editIndex]['subject'] = formData.subject;
+          oldData[editIndex]['message'] = formData.message;
+          setUserData(oldData)
+          setFormData({
+            name:'',
+            email: '',
+            subject: '',
+            message: '',
+            index: ''
+    
+        })
         }
-        
+
+
+        event.preventDefault();
     }
     let deleteRow = (indexNum) =>{
         let afterDelete = userData.filter((v,i)=> i!==indexNum)
         setUserData(afterDelete)
     }
-    let updateRow=(indexNum)=>{
-        let updateIndex = userData.filter((v,i)=> i===indexNum)
-
+    let editRow=(indexNum)=>{
+        let editData = userData.filter((v,i)=> i===indexNum)[0]
+        editData['index'] = indexNum
+        setFormData(editData)
     }
+
+
 
   return (
     <div className="container">
@@ -98,7 +122,7 @@ export default function Enquiry() {
             <p><strong>Email:</strong> {user.email}</p>
             <p><strong>Subject:</strong> {user.subject}</p>
             <p><strong>Message:</strong> {user.message}</p>
-            <button onClick={()=>updateRow(index)}>Edit</button>
+            <button onClick={()=>editRow(index)}>Edit</button>
             <button onClick={()=>deleteRow(index)}>Delete</button>
           </div>
         ))}
