@@ -53,19 +53,28 @@ export default function Enquiry() {
         }else{
           let  editIndex = formData.index;
           let oldData = userData;
-          oldData[editIndex]['name'] = formData.name;
-          oldData[editIndex]['email'] = formData.email;
-          oldData[editIndex]['subject'] = formData.subject;
-          oldData[editIndex]['message'] = formData.message;
-          setUserData(oldData)
-          setFormData({
-            name:'',
-            email: '',
-            subject: '',
-            message: '',
-            index: ''
-    
-        })
+
+          let checkFilter = oldData.filter((v)=>v.email === formData.email)
+          if(checkFilter.length>=1){
+            toast.error("Email already present!");
+          
+           event.preventDefault();
+        }else{
+            oldData[editIndex]['name'] = formData.name;
+            oldData[editIndex]['email'] = formData.email;
+            oldData[editIndex]['subject'] = formData.subject;
+            oldData[editIndex]['message'] = formData.message;
+            setUserData(oldData)
+            setFormData({
+              name:'',
+              email: '',
+              subject: '',
+              message: '',
+              index: ''
+      
+          })
+        }
+
         }
 
 
