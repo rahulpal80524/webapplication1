@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import './Enquiry.css'
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 export default function Enquiry() {
     let [formData,setFormData] = useState({
         name:'',
@@ -30,7 +32,8 @@ export default function Enquiry() {
         }
         let checkFilter = userData.filter((v)=>v.email === formData.email)
         if(checkFilter.length>=1){
-           alert("Email already present") 
+            toast.error("Email already present!");
+          
            event.preventDefault();
         }else{
             let oldUserData = [...userData,currentUserFormData] // old Array + new Array elements
@@ -48,16 +51,17 @@ export default function Enquiry() {
         
     }
     let deleteRow = (indexNum) =>{
-        let afterDelete = userData.filter((v,i)=> i!=indexNum)
+        let afterDelete = userData.filter((v,i)=> i!==indexNum)
         setUserData(afterDelete)
     }
     let updateRow=(indexNum)=>{
-        let updateIndex = userData.filter((v,i)=> i==indexNum)
-        
+        let updateIndex = userData.filter((v,i)=> i===indexNum)
+
     }
 
   return (
     <div className="container">
+    <ToastContainer/>    
     <h1>Enquiry Form</h1>
     <br/>
     {userData.length}
