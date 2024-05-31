@@ -54,7 +54,7 @@ export default function Enquiry() {
           let  editIndex = formData.index;
           let oldData = userData;
 
-          let checkFilter = oldData.filter((v)=>v.email === formData.email)
+          let checkFilter = oldData.filter((v,i)=>v.email === formData.email && i!=editIndex)
           if(checkFilter.length>=1){
             toast.error("Email already present!");
           
