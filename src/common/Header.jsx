@@ -16,6 +16,7 @@ export default function Header() {
           <li><Link to={'/tab'}>Tab</Link></li>
           <li><Link to={'/todo-list'}>ToDo List</Link></li>
           <li><Link to={'/password-generator'}>Password Generator</Link></li>
+          <li><Link to={'/city-weather'}>City Weather</Link></li>
  
 
         </ul>

@@ -16,6 +16,7 @@ import Login from './Pages/Login';
 import Tab from './Tab';
 import ToDoList from './Pages/ToDoList';
 import PasswordGenerator from './Pages/PasswordGenerator';
+import Weather from './Pages/Weather';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let allRoutes = createBrowserRouter(
@@ -55,6 +56,10 @@ let allRoutes = createBrowserRouter(
     {
       path: 'password-generator',
       element: <PasswordGenerator/>
+    },
+    {
+      path: 'city-weather',
+      element: <Weather/>
     },
     {
       path: 'blog/:id',
