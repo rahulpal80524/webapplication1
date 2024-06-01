@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Weather.css';
 
 export default function Weather() {
   const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState(null);
-
+  let [counter, setCounter] = useState(1);
   const handleInputChange = (e) => {
     setCity(e.target.value);
   };
@@ -42,8 +42,17 @@ export default function Weather() {
     setCity('');
   };
 
+  let changeCounter =()=>{
+    setCounter(counter+1)
+  }
+   
+  useEffect(()=>{
+    console.log("welcome to ")
+  },[counter])
   return (
     <div className="weather-container">
+      {counter}
+      <button onClick={changeCounter}>Count</button>
       <h1>Weather App</h1>
       <div className="search-box">
         <input
