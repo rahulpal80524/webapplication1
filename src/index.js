@@ -15,6 +15,7 @@ import Enquiry from './Pages/Enquiry';
 import Login from './Pages/Login';
 import Tab from './Tab';
 import ToDoList from './Pages/ToDoList';
+import PasswordGenerator from './Pages/PasswordGenerator';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let allRoutes = createBrowserRouter(
@@ -50,6 +51,10 @@ let allRoutes = createBrowserRouter(
     {
       path: 'todo-list',
       element: <ToDoList/>
+    },
+    {
+      path: 'password-generator',
+      element: <PasswordGenerator/>
     },
     {
       path: 'blog/:id',
